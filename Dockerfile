@@ -1,9 +1,10 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs19
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends ffmpeg \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+FROM python:3.10-slim-bullseye
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ffmpeg && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY . /app/
 WORKDIR /app/
